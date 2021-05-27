@@ -13,23 +13,16 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="products")
+@Table(name="job_position")
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-	
+public class Job {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+	@Column(name="job_id")
 	private int id;
-    
-    @Column(name="email")
-	private String email;
-    
-    @Column(name="password")
-	private String password;
-    
-    @Column(name="again_password")
-	private String againPassword;
-
+	
+	@Column(name="name")
+	private String name;
 }

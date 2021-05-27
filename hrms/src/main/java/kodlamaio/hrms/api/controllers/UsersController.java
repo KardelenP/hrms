@@ -1,5 +1,7 @@
  package kodlamaio.hrms.api.controllers;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,25 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.UserService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.entities.concretes.User;
 
 @RestController
- @RequestMapping("/api/users")
+@RequestMapping("/api/users")
 public class UsersController {
+	
 	private UserService userService;
 	
 	@Autowired
     public UsersController(UserService userService) {//bana parametrenin içindeki lazım diyo gidiyo projeyi tarıyo
-		super();
+		this.userService=userService;
 	}
     
 	@GetMapping("/getall")
-	public List<User> getAll(){
-		return this.userService.getAll();
-	
-		
+	public  DataResult<List<User>> getAll(){
+		return  this.userService.getAll();
 	}
-
 	
 
 }
